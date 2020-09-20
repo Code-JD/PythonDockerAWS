@@ -12,7 +12,7 @@ def hi_there_everyone():
 @app.route('/add_two_nums', methods=["POST"])
 def add_two_nums():
 	#Get x,y from the posted date
-	dateDict = request.get_json()
+	dataDict = request.get_json()
 	return jsonify(dataDict)
 	#Add z=x+y
 
