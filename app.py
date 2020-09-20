@@ -13,12 +13,23 @@ def hi_there_everyone():
 def add_two_nums():
 	#Get x,y from the posted date
 	dataDict = request.get_json()
-	return jsonify(dataDict)
+
+	if "y" not in dataDict:
+		return "ERROR", 305 
+
+	x = dataDict["x"]
+	y = dataDict["y"]
+
 	#Add z=x+y
+	z = x+y
 
 	#Prepare a JSON, "z":z
+	retJSON = {
+		"z": z
+	}
 
 	#Return jsonify(map_prepared)
+	return jsonify(retJSON), 200
 
 @app.route('/bye')
 def bye():
